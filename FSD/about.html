@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Food Donation</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <style>
+        body.light-theme {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        body.dark-theme {
+            background-color: #1e293b;
+            color: #94a3b8;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: inherit;
+        }
+
+        .icon-btn:hover {
+            color: inherit;
+        }
+
+        .team-card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .team-card:hover {
+            transform: scale(1.05);
+        }
+
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .fs-5 {
+            font-size: 1.25rem;
+        }
+
+        .about-text {
+            background-color: #e0f2fe;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-theme .about-text {
+            background-color: #334155;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo.png" alt="Logo" width="55" class="me-2">
+                <span style="font-size: 1.4em;">Food Donation</span>
+            </a>
+            <div class="d-flex align-items-center">
+                <a href="javascript:history.back()" class="icon-btn me-3" title="Home">
+                    <i class="bi bi-house-fill"></i>
+                </a>
+                <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Us Section -->
+    <div class="container mt-3">
+        <h2 class="text-center mb-4">About Us</h2>
+        <div class="about-text">
+            <p class="fs-5">We are dedicated to reducing food waste and fighting hunger by connecting generous donors
+                with
+                those in need. Our platform empowers individuals and organizations to make a difference by contributing
+                meals, funds, and volunteer efforts to support underprivileged communities.<br><br>
+
+                Our mission is to ensure that no food goes to waste while helping those who need it the most. We believe
+                that every small act of kindness can create a significant impact, and together, we can build a world
+                where
+                no one goes to bed hungry.<br><br>
+
+                Through our transparent and efficient system, we bridge the gap between food surplus and food scarcity.
+                Our
+                dedicated team works tirelessly to organize food drives, fundraising events, and community support
+                programs.
+                We are committed to fostering a culture of giving and social responsibility.<br><br>
+
+                Join us on our journey to create a more equitable society, one meal at a time. Your contribution, no
+                matter
+                how small, can bring hope and happiness to someone's life. Together, we can make a difference and build
+                a
+                hunger-free future.<br><br>
+
+                We believe that together, we can turn compassion into action. Be a part of our mission and help us bring
+                positive change to communities in need. Let's stand united against hunger and build a brighter tomorrow.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Team Section -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Meet Our Team</h2>
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card team-card">
+                    <img src="team1.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">Aarav Mehta</h5>
+                        <p class="card-text">Founder & CEO</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card team-card">
+                    <img src="team2.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">Neha Sharma</h5>
+                        <p class="card-text">Chief Operations Officer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card team-card">
+                    <img src="team3.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">Rajesh Iyer</h5>
+                        <p class="card-text">Lead Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card team-card">
+                    <img src="team4.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">Simran Kaur</h5>
+                        <p class="card-text">Marketing Head</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card team-card">
+                    <img src="team5.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">Ananya Verma</h5>
+                        <p class="card-text">Volunteer Coordinator</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card team-card">
+                    <img src="team6.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">Rohan Desai</h5>
+                        <p class="card-text">Community Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeToggleBtn = document.querySelector("#themeToggle");
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
+            document.body.classList.toggle("light-theme");
+        });
+    </script>
+</body>
+
+</html>

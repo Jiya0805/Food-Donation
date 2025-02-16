@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Food Donation</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        body.light-theme {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        body.dark-theme {
+            background-color: #1e293b;
+            color: #94a3b8;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #003a75;
+            /* Fixed color as in light theme */
+        }
+
+
+        .light-theme .navbar {
+            background-color: #ffffff;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        .light-theme .navbar-brand img {
+            filter: brightness(1);
+        }
+
+        .nav-link {
+            color: #0056b3;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #003a75;
+            font-weight: bold;
+            transform: translateY(-3px);
+        }
+
+        .nav-link.active {
+            color: #003a75 !important;
+            font-weight: bold;
+        }
+
+        .light-theme .dropdown-content {
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+        }
+
+        .light-theme .dropdown-content a {
+            color: #0056b3;
+        }
+
+        /* Dark Theme */
+        body.dark-theme {
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+
+
+
+        .dark-theme .navbar-brand img {
+            filter: brightness(0.8);
+        }
+
+
+        .dark-theme .dropdown-content {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+
+        .dark-theme .dropdown-content a {
+            color: #94a3b8;
+        }
+
+        .light-theme .dropdown-menu {
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+        }
+
+        .light-theme .dropdown-menu .dropdown-item {
+            color: #0056b3;
+            transition: all 0.3s ease;
+        }
+
+        .light-theme .dropdown-menu .dropdown-item:hover {
+            background-color: #f1f5f9;
+            color: #003a75;
+            font-weight: bold;
+            transform: translateX(5px);
+        }
+
+        .dark-theme .dropdown-menu {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+
+        .dark-theme .dropdown-menu .dropdown-item {
+            color: #94a3b8;
+            transition: all 0.3s ease;
+        }
+
+        .dark-theme .dropdown-menu .dropdown-item:hover {
+            background-color: #334155;
+            color: #cbd5e1;
+            font-weight: bold;
+            transform: translateX(5px);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: #003a75;
+        }
+
+        .chart-btn {
+            
+            background: transparent;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-size: 1.5rem;
+            outline: none;
+            border: none;
+        }
+        
+        /* Light Theme */
+        .chart-section {
+            background-color: #f0f4fa;
+        }
+        
+        body.light-theme .chart-btn {
+            color: #0056b3;
+        }
+        
+        body.light-theme .chart-btn.font-bold {
+            font-weight: bold;
+            color: #0c4a6e;
+        }
+        
+        body.dark-theme .chart-btn {
+            color: #0056b3;
+        }
+        
+        body.dark-theme .chart-btn.font-bold {
+            font-weight: bold;
+            color: #0c4a6e;
+        }
+        
+        .manage-donations-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+        
+        .donations-container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        
+        .manage-donations-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+        
+        .donations-container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        
+        .manage-donations-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+        
+        .donations-container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        
+        .manage-donations-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+        
+        .donations-container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        
+        .table-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            outline: none;
+            margin: 0 5px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        
+        .table-btn.active {
+            font-weight: bold;
+            opacity: 1;
+            pointer-events: none;
+        }
+        
+        .donation-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: opacity 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .donation-table.hidden {
+            display: none;
+        }
+        
+        .action-btn {
+            padding: 4px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 0.85rem;
+            outline: none;
+            margin: 0 5px;
+        }
+        
+        /* Light Theme */
+        body.light-theme .donation-table {
+            background-color: #fff;
+            color: #1e293b;
+        }
+        
+        body.light-theme .donation-table th {
+            background-color: #f0f4fa;
+        }
+        
+        body.light-theme .action-btn.approve-btn {
+            background-color: #4caf50;
+            color: #fff;
+        }
+        
+        body.light-theme .action-btn.reject-btn {
+            background-color: #f44336;
+            color: #fff;
+        }
+        
+        body.light-theme .action-btn:disabled {
+            background-color: #e0e0e0;
+            color: #9e9e9e;
+            cursor: not-allowed;
+        }
+        
+        /* Dark Theme */
+        body.dark-theme .donation-table {
+            background-color: #2d3748;
+            color: #cbd5e1;
+        }
+        
+        body.dark-theme .donation-table th {
+            background-color: #374151;
+        }
+        
+        body.dark-theme .action-btn.approve-btn {
+            background-color: #81c784;
+            color: #fff;
+        }
+        
+        body.dark-theme .action-btn.reject-btn {
+            background-color: #e57373;
+            color: #fff;
+        }
+        
+        body.dark-theme .action-btn:disabled {
+            background-color: #4a5568;
+            color: #718096;
+            cursor: not-allowed;
+        }
+        
+        
+    </style>
+    <script>
+        function logout() {
+            isLoggedIn = false;
+            userName = '';
+            userEmail = '';
+            history.back();
+        }
+
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.querySelector('.back-to-top');
+            if (window.scrollY > 200) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        window.onload = function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.add(savedTheme + '-theme');
+
+            const chartData = {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                donors: [10, 15, 12, 20, 25, 22, 18],
+                volunteers: [5, 8, 7, 12, 10, 14, 9]
+            };
+
+            const ctx = document.getElementById('donationChart').getContext('2d');
+
+            let donationChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [
+                        {
+                            label: 'Donors',
+                            data: chartData.donors,
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: getComputedStyle(document.body).getPropertyValue('--text-color')
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${context.dataset.label}: ${context.raw}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Days of the Week'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Number of People'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            function updateChart(type) {
+                if (type === 'donor') {
+                    donationChart.data.datasets[0].label = 'Donors';
+                    donationChart.data.datasets[0].data = chartData.donors;
+                    donationChart.data.datasets[0].borderColor = '#3b82f6';
+                    donationChart.data.datasets[0].backgroundColor = 'rgba(59, 130, 246, 0.2)';
+                } else if (type === 'volunteer') {
+                    donationChart.data.datasets[0].label = 'Volunteers';
+                    donationChart.data.datasets[0].data = chartData.volunteers;
+                    donationChart.data.datasets[0].borderColor = '#60a5fa';
+                    donationChart.data.datasets[0].backgroundColor = 'rgba(96, 165, 250, 0.2)';
+                }
+                donationChart.update();
+            }
+
+            document.querySelector('.donor-btn').addEventListener('click', function () {
+                updateChart('donor');
+                setActiveButton(this);
+            });
+
+            document.querySelector('.volunteer-btn').addEventListener('click', function () {
+                updateChart('volunteer');
+                setActiveButton(this);
+            });
+
+            function setActiveButton(activeButton) {
+                const buttons = document.querySelectorAll('.chart-btn');
+                buttons.forEach(button => button.classList.remove('font-bold'));
+                activeButton.classList.add('font-bold');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const detailsBtn = document.querySelector('.details-btn');
+            const amountBtn = document.querySelector('.amount-btn');
+            const detailsTable = document.querySelector('.details-table');
+            const amountTable = document.querySelector('.amount-table');
+        
+            detailsBtn.addEventListener('click', function() {
+                detailsTable.classList.remove('hidden');
+                amountTable.classList.add('hidden');
+                detailsBtn.classList.add('active');
+                amountBtn.classList.remove('active');
+            });
+        
+            amountBtn.addEventListener('click', function() {
+                amountTable.classList.remove('hidden');
+                detailsTable.classList.add('hidden');
+                amountBtn.classList.add('active');
+                detailsBtn.classList.remove('active');
+            });
+        
+            document.querySelectorAll('.approve-btn, .reject-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const siblingButton = this.nextElementSibling || this.previousElementSibling;
+                    siblingButton.disabled = true;
+                    this.classList.add('font-bold');
+                });
+            });
+        });
+
+        async function downloadManagedDonationsReport() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+        
+            // Logo Settings
+            const logoUrl = 'logo.png'; // Change this to your logo URL
+        
+            // Load the logo image
+            const logoImage = new Image();
+            logoImage.src = logoUrl;
+            logoImage.onload = function () {
+                // Add Logo
+                doc.addImage(logoImage, 'PNG', 10, 10, 30, 30);
+        
+                // Add Title and Header
+                doc.setFontSize(18);
+                doc.text("Food Donation Report", 70, 20);
+                doc.setFontSize(12);
+                doc.text("Managed Donations", 20, 50);
+        
+                // Add Table Header
+                doc.setFontSize(10);
+                doc.text("Name", 20, 60);
+                doc.text("Type", 50, 60);
+                doc.text("Details", 80, 60);  // Adjusted for wider column
+                doc.text("Amount", 140, 60);
+                doc.text("Status", 170, 60);
+        
+                // Sample Data
+                const sampleData = [
+                    { name: "John Doe", type: "Food", detail: "Canned Goods and Dry Snacks", amt: 500, status: "Approved" },
+                    { name: "Jane Smith", type: "Funds", detail: "Charity Event Support", amt: 1000, status: "Rejected" },
+                    { name: "Emily Brown", type: "Volunteer", detail: "Event Coordination and Help", amt: "N/A", status: "Approved" }
+                ];
+        
+                // Add Data Rows
+                let yPosition = 70;
+                sampleData.forEach(item => {
+                    doc.text(item.name, 20, yPosition);
+                    doc.text(item.type, 50, yPosition);
+                    doc.text(item.detail, 80, yPosition);  // Wider Details Column
+                    doc.text(item.amt.toString(), 140, yPosition);
+                    doc.text(item.status, 170, yPosition);
+                    yPosition += 10;
+                });
+        
+                // Footer
+                doc.setFontSize(10);
+                doc.text("Thank you for supporting the cause!", 70, yPosition + 10);
+        
+                // Save the PDF
+                doc.save("Donation_Report.pdf");
+            };
+        }
+
+        function goHome() {
+                window.location.href = 'hero.html';  // Change to your home page URL
+        }
+        
+    </script>
+</head>
+
+<body class="light-theme position-relative" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100" tabindex="0">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-3" id="navbar">
+
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="logo.png" alt="Logo" width="40" class="me-2">
+            <span>Food Donation</span>
+        </a>
+        <div class="ms-auto d-flex align-items-center">
+            <ul class="navbar-nav me-4">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#overview" style="font-weight: bold;">Overview</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#manage-donation">Manage Donation</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link reports-link" onclick="downloadManagedDonationsReport()">Reports</a>
+                </li>                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        data-bs-toggle="dropdown">
+                        Profile
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><span class="dropdown-item">Name: admin</span></li>
+                        <li><span class="dropdown-item">Email: admin@gmail.com</span></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="#" onclick="goHome()" class="icon-btn me-3" title="Home">
+                <i class="bi bi-house-fill"></i>
+            </a>
+            <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+                <i class="bi bi-moon-fill"></i>
+            </button>
+        </div>
+    </nav>
+
+    <a href="#top" class="back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <section class="chart-section" style="height: 85vh; display: flex; justify-content: center; align-items: center;" id="overview" >
+        <div style="display: flex; width: 100%; height: 100%;" >
+            <!-- Chart Container (60% Width) -->
+            <div style="width: 60%; display: flex; justify-content: center; align-items: center;">
+                <div style="width: 100%; height: 100%;margin-top:100px;margin-left:30px;">
+                    <canvas id="donationChart"></canvas>
+                </div>
+            </div>
+    
+            <!-- Buttons Container (40% Width) -->
+            <div style="width: 40%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+                <button class="chart-btn donor-btn font-bold">Donor</button>
+                <button class="chart-btn volunteer-btn">Volunteer</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="manage-donations-section py-8" id="manage-donation">
+        <div class="donations-container">
+            <h2 class="text-2xl font-semibold mb-5 text-center">Manage Donations</h2>
+            <div class="button-group text-center mb-5">
+                <button class="table-btn details-btn font-bold active">Details View</button>
+                <button class="table-btn amount-btn">Amount View</button>
+            </div>
+            <div class="overflow-x-auto">
+                <!-- Details Table -->
+                <table class="donation-table details-table w-full text-left rounded-lg shadow-md">
+                    <thead>
+                        <tr>
+                            <th class="p-4">Name</th>
+                            <th class="p-4">Type</th>
+                            <th class="p-4">Details</th>
+                            <th class="p-4 text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <td class="p-4">John Doe</td>
+                            <td class="p-4">Food</td>
+                            <td class="p-4">10 Kg Rice</td>
+                            <td class="p-4 text-center">
+                                <button class="action-btn approve-btn">Approve</button>
+                                <button class="action-btn reject-btn">Reject</button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="p-4">Jane Smith</td>
+                            <td class="p-4">Volunteer</td>
+                            <td class="p-4">5 Hours</td>
+                            <td class="p-4 text-center">
+                                <button class="action-btn approve-btn">Approve</button>
+                                <button class="action-btn reject-btn">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <!-- Amount Table -->
+                <table class="donation-table amount-table w-full text-left rounded-lg shadow-md hidden">
+                    <thead>
+                        <tr>
+                            <th class="p-4">Name</th>
+                            <th class="p-4">Type</th>
+                            <th class="p-4">Amount</th>
+                            <th class="p-4 text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <td class="p-4">Alex Johnson</td>
+                            <td class="p-4">Funds</td>
+                            <td class="p-4">₹1000</td>
+                            <td class="p-4 text-center">
+                                <button class="action-btn approve-btn">Approve</button>
+                                <button class="action-btn reject-btn">Reject</button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="p-4">Emily Brown</td>
+                            <td class="p-4">Funds</td>
+                            <td class="p-4">₹500</td>
+                            <td class="p-4 text-center">
+                                <button class="action-btn approve-btn">Approve</button>
+                                <button class="action-btn reject-btn">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const themeToggleBtn = document.querySelector("#themeToggle");
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
+            document.body.classList.toggle("light-theme");
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+</body>
+
+</html>
