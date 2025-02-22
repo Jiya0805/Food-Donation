@@ -1,0 +1,447 @@
+/* Light Theme */
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.light-theme .navbar {
+    background-color: #ffffff;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.light-theme .navbar-brand img {
+    filter: brightness(1);
+}
+
+.light-theme .nav-link {
+    color: #0056b3;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.light-theme .nav-link:hover {
+    color: #003a75;
+    font-weight: bold;
+    transform: translateY(-3px);
+}
+
+.light-theme .nav-link.active {
+    color: #003a75;
+    font-weight: bold;
+}
+
+.light-theme .dropdown-content {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+}
+
+.light-theme .dropdown-content a {
+    color: #0056b3;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+
+.dark-theme .navbar {
+    background-color: #1e293b;
+    border-bottom: 2px solid #334155;
+}
+
+.dark-theme .navbar-brand img {
+    filter: brightness(0.8);
+}
+
+.dark-theme .nav-link {
+    color: #94a3b8;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .nav-link:hover {
+    color: #cbd5e1;
+    font-weight: bold;
+    transform: translateY(-3px);
+}
+
+.dark-theme .nav-link.active {
+    color: #cbd5e1;
+    font-weight: bold;
+}
+
+.dark-theme .dropdown-content {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+}
+
+.dark-theme .dropdown-content a {
+    color: #94a3b8;
+}
+
+/* Dropdown Styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Toggle Button */
+.theme-toggle {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 22px;
+    color: inherit;
+}
+
+/* Home Section Styles */
+.home-section {
+    background: url('home.png') center center/cover no-repeat;
+    height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+}
+
+.home-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.home-section .content {
+    z-index: 2;
+    text-align: center;
+    background-color: rgba(245, 246, 247, 0.4);
+    color: #fff;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-section .content:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 86, 179, 0.5);
+}
+
+
+.join-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.join-btn:hover {
+    transform: scale(1.1);
+    background-color: #003a75;
+}
+
+/* top-donors */
+.donor-section .card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donor-section .card:hover {
+    transform: scale(1.05);
+}
+
+/* Light Theme */
+body.light-theme .donor-section .card {
+    background-color: #cce4fb;
+    color: #0056b3;
+}
+
+body.light-theme .donor-section .card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme */
+body.dark-theme .donor-section .card {
+    background-color: #1e293b;
+    color: #94a3b8;
+}
+
+body.dark-theme .donor-section .card:hover {
+    box-shadow: 0 8px 20px rgba(203, 213, 225, 0.2);
+}
+
+/* pie chart */
+.chart-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-btn {
+    display: block;
+    margin: 8px 0;
+    padding: 6px 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.chart-btn:hover {
+    color: #0ea5e9;
+}
+
+/* Light Theme */
+body.light-theme .chart-btn {
+    color: #0056b3;
+}
+
+body.light-theme .chart-btn.font-bold {
+    font-weight: bold;
+    color: #0c4a6e;
+}
+
+/* Dark Theme */
+body.dark-theme .chart-btn {
+    color: #0056b3;
+}
+
+body.dark-theme .chart-btn.font-bold {
+    font-weight: bold;
+    color: #0c4a6e;
+}
+
+/* contact us */
+
+body.light-theme .contact-section {
+    background-color: #f0f4fa;
+    color: #1e293b;
+}
+
+body.light-theme .contact-section .form-control {
+    background-color: #fff;
+    color: #1e293b;
+    border: 1px solid #d1d5db;
+}
+
+body.light-theme .contact-section .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px #007bff;
+}
+
+body.light-theme .contact-section .submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+body.light-theme .contact-section .submit-btn:hover {
+    background-color: #0056b3;
+}
+
+body.light-theme .social-media-links .social-icon {
+    color: #007bff;
+}
+
+body.dark-theme .contact-section {
+    background-color: #1e293b;
+    color: #cbd5e1;
+}
+
+body.dark-theme .contact-section .form-control {
+    background-color: #334155;
+    color: #cbd5e1;
+    border: 1px solid #475569;
+}
+
+body.dark-theme .contact-section .form-control:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 5px #3b82f6;
+}
+
+body.dark-theme .contact-section .submit-btn {
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+}
+
+body.dark-theme .contact-section .submit-btn:hover {
+    background-color: #2563eb;
+}
+
+body.dark-theme .social-media-links .social-icon {
+    color: #3b82f6;
+}
+
+.social-media-links .social-icon {
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-media-links .social-icon:hover {
+    color: #0056b3;
+}
+
+.contact-info i {
+    color: #007bff;
+    margin-right: 8px;
+}
+
+body.dark-theme .contact-info i {
+    color: #3b82f6;
+}
+
+/* back to top */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    display: none;
+}
+
+.back-to-top:hover {
+    background-color: #0056b3;
+}
+
+body.dark-theme .back-to-top {
+    background-color: #3b82f6;
+}
+
+body.dark-theme .back-to-top:hover {
+    background-color: #2563eb;
+}
+
+/* General Modal Styles */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+/* Light Theme */
+body.light-theme .modal-content {
+    background-color: #ffffff;
+    color: #333;
+}
+
+body.light-theme .modal-header .modal-title {
+    color: #444;
+}
+
+body.light-theme .form-control {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ced4da;
+}
+
+body.light-theme .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.25);
+    border-color: #80bdff;
+}
+
+body.light-theme .btn-primary {
+    background-color: #c890A7;
+    border-color: #c890A7;
+}
+
+body.light-theme .btn-primary:hover {
+    background-color: #b77a93;
+    border-color: #b77a93;
+}
+
+body.light-theme .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+body.light-theme .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+/* Dark Theme */
+body.dark-theme .modal-content {
+    background-color: #1e293b;
+    color: #94a3b8;
+}
+
+body.dark-theme .modal-header .modal-title {
+    color: #cbd5e1;
+}
+
+body.dark-theme .form-control {
+    background-color: #334155;
+    color: #94a3b8;
+    border: 1px solid #475569;
+}
+
+body.dark-theme .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+    border-color: #3b82f6;
+}
+
+body.dark-theme .btn-primary {
+    background-color: #9f7ea7;
+    border-color: #9f7ea7;
+}
+
+body.dark-theme .btn-primary:hover {
+    background-color: #8c6a91;
+    border-color: #8c6a91;
+}
+
+body.dark-theme .btn-secondary {
+    background-color: #475569;
+    border-color: #475569;
+}
+
+body.dark-theme .btn-secondary:hover {
+    background-color: #374151;
+    border-color: #374151;
+}
+

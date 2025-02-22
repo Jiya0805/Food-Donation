@@ -1,0 +1,54 @@
+body.light-theme {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+body.dark-theme {
+    background-color: #1e293b;
+    color: #94a3b8;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: inherit;
+}
+
+.icon-btn:hover {
+    color: inherit;
+}
+
+.team-card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+}
+
+.team-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.fs-5 {
+    font-size: 1.25rem;
+}
+
+.about-text {
+    background-color: #e0f2fe;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-theme .about-text {
+    background-color: #334155;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}

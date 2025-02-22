@@ -1,0 +1,92 @@
+body.light-theme {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+body.dark-theme {
+    background-color: #1e293b;
+    color: #94a3b8;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: inherit;
+}
+
+.icon-btn:hover {
+    color: inherit;
+}
+
+.goal-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.form-control,
+.form-select {
+    background-color: transparent;
+    color: inherit;
+    border: 1px solid #94a3b8;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    border-color: #c890A7;
+}
+
+.donation-form {
+    width: 65%;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.light-theme .donation-form {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .donation-form {
+    background-color: #334155;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.goal-section {
+    margin-top: 2rem;
+}
+
+.goal-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.light-theme .goal-card {
+    background-color: #fff;
+}
+
+.dark-theme .goal-card {
+    background-color: #334155;
+}
+
+.progress-bar-meals {
+    background-color: #60a5fa;
+    /* Light Blue */
+}
+
+.progress-bar-volunteers {
+    background-color: #3b82f6;
+    /* Medium Blue */
+}
+
+.progress-bar-rupees {
+    background-color: #1e40af;
+    /* Dark Blue */
+}
